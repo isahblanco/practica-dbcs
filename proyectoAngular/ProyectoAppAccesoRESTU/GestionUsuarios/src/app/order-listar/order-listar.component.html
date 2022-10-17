@@ -1,0 +1,57 @@
+<p *ngIf="mostrarMensaje">{{mensaje}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="btn btn-primary" id="volver-button"
+            [routerLink]="['/users']">Volver</p>
+
+            <p  style="float:right; border-color: #c9302c; background-color:#c9302c;"
+            class="btn btn-primary" (click)="logOut()"
+            [routerLink]="['/login']" id="cerrar-sesion-button" >Cerrar sesión</p>
+
+            <fieldset class="form-group col-sm-12"></fieldset>
+            <fieldset class="form-group col-sm-1">
+                <a  class="btn btn-primary" [routerLink]="['/orders/nuevo']">+</a>
+            </fieldset>
+
+            <form class="form-inline">
+                <fieldset class="form-group col-sm-12"></fieldset>
+                <fieldset class="form-group col-sm-12"></fieldset>
+            </form>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr class="row">
+                        <th>Id</th>
+                        <th>Address</th>
+                        <th>Postal Code</th>
+                        <th>City</th>
+                        <th>Person</th>
+                        <th>Seller Id</th>
+                        <th>Status</th>
+                        <th>Created At</th>
+                        <th>Expected Date</th>
+                        <th>Cost (€)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of Orders" class="row">
+                        <td><i>{{order.id}}</i></td>
+                        <td><i>{{order.deliveryAddress}}</i></td>
+                        <td><i>{{order.deliveryPostalCode}}</i></td>
+                        <td><i>{{order.deliveryCity}}</i></td>
+                        <td><i>{{order.deliveryPerson}}</i></td>
+                        <td><i>{{order.idSeller}}</i></td>
+                        <td><i>{{order.status}}</i></td>
+                        <td><i>{{order.createdAt}}</i></td>
+                        <td><i>{{order.expectedDeliveryDate}}</i></td>
+                        <td><i>{{order.cost}}</i></td>
+                        <td><a class="btn btn-info" [routerLink]= "['/orders', order.id,
+                        'editar']" > Preparar pedido </a> </td>
+                        <td><button class="btn btn-danger" [disabled]="order.status != ORDERED" (click)="borrarOrder(order.id)">-</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+#productList,#units, #price,#agregaProducto, #status, #statuslabel 
+{
+    margin-left:12px;
+}
+
+input:invalid+span:after:invalid {
+    content: '✖';
+    padding-left: 5px;
+}
+
+input:valid+span:after:valid {
+    content: '✓';
+    padding-left: 5px;
+}

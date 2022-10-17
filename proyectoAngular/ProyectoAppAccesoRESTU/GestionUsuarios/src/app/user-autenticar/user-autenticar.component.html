@@ -1,0 +1,44 @@
+<form [formGroup]="form">
+    <fieldset>
+        <legend>Login</legend>
+        <div class="form-field">
+            <label>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input 
+                name="email" 
+                formControlName="email"
+                required>
+        <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && username.invalid"
+        >
+            Hace falta un email
+        </div>
+    </div>
+    
+        <div class="form-field">
+            <label>Password:&nbsp;</label>
+            <input 
+                name="password"
+                formControlName="password" 
+                type="password"
+                minlength="6"
+                required
+            >
+            <div
+                class="alert alert-danger"
+                role="alert"
+                *ngIf="f.submitted && password.invalid"
+            >
+            <div *ngIf="password.errors.required">Hace falta una contraseña</div>
+            <div *ngIf="password.errors.minlength">
+                La contraseña debe tener al menos 6 caracteres </div>
+            </div>
+        </div>
+
+    </fieldset>
+    <div class="form-buttons">
+        <button class="btn btn-primary" 
+                (click)="login()">Login</button>
+    </div>
+</form>

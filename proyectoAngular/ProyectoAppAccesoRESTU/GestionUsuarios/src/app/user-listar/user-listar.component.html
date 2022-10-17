@@ -1,0 +1,69 @@
+<p *ngIf="mostrarMensaje">{{mensaje}}</p>
+<div class="container">
+    <a class="btn btn-primary" [routerLink]="['/orders']" id="input-pedidos">Ver pedidos</a>
+    <p  style="float:right; border-color: #c9302c; background-color:#c9302c;" class="btn btn-primary" 
+    (click)="logOut()" [routerLink]="['/login']">Cerrar sesión</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <fieldset class="form-group col-sm-12"></fieldset>
+
+            
+            <fieldset class="form-group col-sm-1">
+                <a class="btn btn-primary" [routerLink]="['/users/nuevo']">+</a>
+            </fieldset>
+
+            <form class="form-inline">
+                <fieldset class="form-group col-sm-12"></fieldset>
+                <!--<fieldset class="form-group col-sm-1">-->
+                <!--</fieldset>-->
+                <fieldset class="form-group col-sm-12"></fieldset>              
+
+            </form>
+            <!--Para mostrar usuarios habilitados, inhabilitados o todos.-->
+            <select [formControl] ="enabledControl" id="filtroEnabled"> 
+                <option value ="Todos">Todos</option>
+                <option value ="Habilitados">Habilitados</option>
+                <option value ="Inhabilitados">Inhabilitados</option>
+            </select>
+            <input type="submit" id = "input-filtrar" value = "Filtrar" (click)="getUsers_AccesoResponse(enabledControl.value)">
+            
+            <!--Para habilitar usuarios-->
+            <input style="text-align: center;" [formControl]="listaIds" id = "listaHabilitaIds" placeholder="Introduzca uno o más ids">
+            <input style="text-align: center;" type="submit" id="input-habilitar" value="Habilitar" (click)="habilitarUsers(listaIds.value)">
+            
+            <!--Para buscar usuarios por su email-->&nbsp;
+            <input style="text-align: center;"  [formControl]="emailDelUser" id="email" placeholder="Buscar usuario por email:"> &nbsp;   
+            <input style="text-align: center;" type="submit" id="input-buscar" value="Buscar" (click)="userEmail(emailDelUser.value)">            
+            <table class="table table-striped">
+                <thead>
+                    <tr class="row">
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Enabled</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of Users" class="row">
+                        <td><i>{{user.id}}</i></td>
+                        <td><i>{{user.name}}</i></td>
+                        <td><i>{{user.firstName}}</i></td>
+                        <td><i>{{user.lastName}}</i></td>
+                        <td><i>{{user.email}}</i></td>
+                        <td><i>{{user.enabled}}</i></td>
+                        <td><i>{{user.createdAt}}</i></td>
+                        <td><i>{{user.updatedAt}}</i></td>
+                        <td><a class="btn btn-info" [routerLink]= "['/users', user.id,
+                        'editar']" > Editar </a> </td>
+                        <td><a class="btn btn-danger" (click)="borrar(user.id)">-</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>
