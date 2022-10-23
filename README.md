@@ -1,9 +1,7 @@
-# practica-dbcs
+# Práctica DBCS. Sistema de gestión de usuarios y pedidos basado en microservicios
 Proyecto de Desarrollo Basado en Componentes y Servicios. Uso de Angular, SpringBoot, Docker, MySQL y Maven para la creación de un servicio con autenticación y gestión de usuarios y gestión de pedidos.
 
-## Sistema de gestión de usuarios y pedidos basado en microservicios
-
-Este proyecto consiste en la gestión de una tienda
+Consiste en la gestión de una tienda
 en la que el usuario debe iniciar sesión para así estar autenticado y poder gestionar tanto los
 usuarios como los pedidos que se crean en el sistema.
 
@@ -15,7 +13,7 @@ contenedores.
 El Front-end está desarrollado con Angular y el Back-end con SpringBoot, 
 la base de datos utilizada es MySQL. La autenticación de usuarios se realiza mediante JWT.
 
-### Docker containers
+## Docker containers
 * Cliente Angular.
 * Base de datos MySQL de usuarios.
 * Base de datos MySQL de pedidos.
@@ -23,7 +21,7 @@ la base de datos utilizada es MySQL. La autenticación de usuarios se realiza me
 * API de autenticación de usuarios.
 * API de gestión de pedidos.
 
-### Funcionalidades
+## Funcionalidades
 
 * Inicio y cierre de sesión.
 * Creación y eliminación de usuarios.
@@ -34,7 +32,7 @@ la base de datos utilizada es MySQL. La autenticación de usuarios se realiza me
 * Creación y eliminación de pedidos.
 * Edición de los datos y productos del pedido.
 
-### Puesta en marcha
+## Puesta en marcha
 
 Primero, comprobar credenciales (MYSQL_ROOT_PASSWORD, MYSQL_USER, MYSQL_PASSWORD) para la conexión con la base de datos en el fichero "docker-compose.yml". Desde el terminal ir al directorio practica-dbcs/ y ejecutar el comando **docker-compose**.
 
