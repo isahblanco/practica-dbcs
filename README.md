@@ -1,17 +1,17 @@
 # Práctica DBCS. Sistema de gestión de usuarios y pedidos basado en microservicios
-Proyecto de Desarrollo Basado en Componentes y Servicios. Uso de Angular, SpringBoot, Docker, MySQL y Maven para la creación de un servicio con autenticación y gestión de usuarios y gestión de pedidos.
+Práctica de Desarrollo Basado en Componentes y Servicios. Uso de Angular, SpringBoot, Docker, MySQL y Maven para la creación de un servicio con autenticación y gestión de usuarios y gestión de pedidos.
 
 Consiste en la gestión de una tienda
 en la que el usuario debe iniciar sesión para así estar autenticado y poder gestionar tanto los
-usuarios como los pedidos que se crean en el sistema.
+usuarios como los pedidos que se creen en el sistema.
 
 El sistema cuenta con un API Gateway para la comunicación entre los microservicios 
-entre sí y la WebApp(Angular) mediante KONG/KONGA que debe estar configurado con las
-correspondientes rutas y protocolos. Se hace uso de Docker para la creación de las imágenes y
+entre sí y la WebApp(Angular) mediante KONG/KONGA, que debe estar configurado con las
+correspondientes rutas y protocolos. Se hace uso de Docker para la creación y gestión de las imágenes y
 contenedores. 
 
-El Front-end está desarrollado con Angular y el Back-end con SpringBoot, 
-la base de datos utilizada es MySQL. La autenticación de usuarios se realiza mediante JWT.
+El Front-end está desarrollado en Angular y el Back-end en SpringBoot, 
+la base de datos utilizada es MySQL. La autenticación de usuarios se realiza mediante Json Web Token(JWT).
 
 ## Docker containers
 * Cliente Angular.
@@ -96,6 +96,6 @@ practica-dbcs/userAuthentication/src/main/resources/application.properties de la
  - jwt.secret=*nuevo secret generado*
  - jwt.kid=*nuevo key generado*
  
-y se asigna el consumer como plugin a las rutas gestor y pedidos.
-Finalmente, se crea otro consumer más, **cors**, con alcance global y la aplicación queda totalmente configurada para usar. Desde un navegador web, escribir la url http://localhost:4200/ o escribir localhost:4200 e iniciar sesión con el email y contraseña del usuario que se introdujo anteriormente.
+y se asigna el consumer como plugin a las rutas **/api/gestor** y **/api/pedidos**.
+Finalmente, se crea otro consumer más, **CORS**, con alcance global y la aplicación queda totalmente configurada para usar. Desde un navegador web, escribir la url http://localhost:4200/ o escribir localhost:4200 e iniciar sesión con el email y contraseña del usuario que se introdujo anteriormente.
 
